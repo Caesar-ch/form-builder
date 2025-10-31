@@ -1,0 +1,74 @@
+/* 覆盖元素相关样式 */
+.overlay-toggle-container {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.overlay-toggle-container:hover {
+  opacity: 1;
+}
+
+/* 当父元素被hover时显示覆盖切换按钮 */
+.grid-item:hover .overlay-toggle-container {
+  opacity: 1;
+}
+
+/* 覆盖元素样式 */
+.overlay-element {
+  border: 2px dashed #007bff !important;
+  background: rgba(0, 123, 255, 0.1) !important;
+  will-change: transform; /* 优化GPU加速 */
+  backface-visibility: hidden; /* 减少重绘 */
+}
+
+.overlay-element::before {
+  content: '覆盖元素';
+  position: absolute;
+  top: -20px;
+  left: 0;
+  background: #007bff;
+  color: white;
+  padding: 2px 6px;
+  font-size: 10px;
+  border-radius: 2px;
+  z-index: 1000;
+}
+
+/* 覆盖切换按钮样式 */
+.overlay-toggle {
+  position: relative;
+}
+
+.overlay-toggle button {
+  transition: all 0.2s ease;
+  will-change: transform; /* 优化GPU加速 */
+}
+
+.overlay-toggle button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* 拖拽时的样式优化 */
+.overlay-element.dragging {
+  transition: none !important;
+  cursor: grabbing !important;
+  z-index: 1000 !important;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+}
+
+/* 目标选择下拉菜单动画 */
+.overlay-toggle .target-selector {
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

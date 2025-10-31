@@ -1,7 +1,32 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["DOM", "DOM.Iterable", "ES6"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@formbuilder/core": ["./packages/core/src"],
+      "@formbuilder/ui": ["./packages/ui/src"],
+      "@formbuilder/layout-engine": ["./packages/layout-engine/src"],
+      "@formbuilder/property-panel": ["./packages/property-panel/src"],
+      "@formbuilder/component-library": ["./packages/component-library/src"],
+      "@formbuilder/form-builder": ["./packages/form-builder/src"]
+    }
+  },
+  "include": ["packages/*/src", "apps/*/src"],
+  "exclude": ["node_modules", "dist", "build"]
 }

@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
-import LayoutRenderer, { type ComponentConfig, type LayoutData } from '../components/LayoutRenderer.tsx';
+import LayoutRenderer from '@formbuilder/layout-engine';
+import { type ComponentConfig, type LayoutData } from '@formbuilder/core';
 
 // 注意：ComponentRenderer 现在在 LayoutRenderer 中定义
 
